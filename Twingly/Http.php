@@ -17,6 +17,9 @@ class Twingly_Http
         $response = self::_doRequest('POST', $path, self::_buildJson($params));
         return self::_handleResponse($response);
     }
+    private static function _buildJson($params) {
+        return json_encode($params);
+    }
 
     private static function _handleResponse($response) 
     {
@@ -31,7 +34,7 @@ class Twingly_Http
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_TIMEOUT, 30);
         curl_setopt($curl, CURLOPT_CUSTOMREQUEST, $httpVerb);
-        curl_setopt($curl, CURLOPT_URL, Twingly_Configuration::topListUrl() . $path);
+        curl_setopt($curl, CURLOPT_URL, Twingly_Configuration::baseUrl() . $path);
         curl_setopt($curl, CURLOPT_ENCODING, 'gzip');
         curl_setopt($curl, CURLOPT_HTTPHEADER, array(
             'Accept: application/json',

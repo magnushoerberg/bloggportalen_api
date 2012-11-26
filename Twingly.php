@@ -78,10 +78,12 @@ abstract class Twingly
         }
     }
 }
+require_once('Twingly/Blogg.php');
 require_once('Twingly/Exception.php');
 require_once('Twingly/Configuration.php');
 require_once('Twingly/Http.php');
 require_once('Twingly/Json.php');
+require_once('Twingly/TopList.php');
 require_once('Twingly/TopList.php');
 require_once('Twingly/Util.php');
 require_once('Twingly/Exception/Authentication.php');
