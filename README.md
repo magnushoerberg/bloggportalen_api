@@ -2,7 +2,7 @@
 Bloggportalen API php client
 ===
 ```
-require_once(PATH_TO_TWINGLY_API + '/lib/Twingly.php');
+require_once(PATH_TO_TWINGLY_API . '/Twingly.php');
 
 Twingly_Configuration::environment('development'); //production or development
 Twingly_Configuration::twinglyId('<YOUR_TWINGLY_ID>');
