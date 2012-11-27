@@ -44,7 +44,6 @@ class Twingly_Http
         ));
         curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
         curl_setopt($curl, CURLOPT_USERPWD, Twingly_Configuration::twinglyId() . ':' . Twingly_Configuration::twinglyApiKey());
-        // curl_setopt($curl, CURLOPT_VERBOSE, true);
         if (Twingly_Configuration::sslOn()) {
             curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);
             curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 2);
@@ -59,10 +58,8 @@ class Twingly_Http
         $response = curl_exec($curl);
         $httpStatus = curl_getinfo($curl, CURLINFO_HTTP_CODE);
         curl_close($curl);
-        if (Twingly_Configuration::sslOn()) {
-            if ($httpStatus == 0) {
-                throw new Twingly_Exception_SSLCertificate();
-            }
+        if (Twingly_Configuration::sslOn() && $httpStatus == 0) {
+            throw new Twingly_Exception_SSLCertificate();
         }
         return array('status' => $httpStatus, 'body' => $response);
     }

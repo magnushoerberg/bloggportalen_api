@@ -203,7 +203,7 @@ class Twingly_Configuration extends Twingly
         case 'production':
             $caPath = realpath(
                 dirname(__FILE__) .
-                $sslPath .  'www_bloggportalenapi.ca.crt'
+                $sslPath .  'api_bloggportalen_se'
             );
             break;
         }

@@ -89,9 +89,10 @@ require_once('Twingly/Util.php');
 require_once('Twingly/Exception/Authentication.php');
 require_once('Twingly/Exception/Authorization.php');
 require_once('Twingly/Exception/Configuration.php');
+require_once('Twingly/Exception/SSLCertificate.php');
 
 if (version_compare(PHP_VERSION, '5.3.1', '<')) {
-    throw new Twingly_Exception('PHP version >= 5.2.1 required');
+    throw new Twingly_Exception('PHP version >= 5.3.1 required');
 }
 function requireDependencies() {
     $requiredExtensions = array('openssl', 'curl');
