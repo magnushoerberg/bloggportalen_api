@@ -1,21 +1,14 @@
-
 Bloggportalen API php client
 ===
 ```
 require_once(PATH_TO_TWINGLY_API . '/Twingly.php');
 
-Twingly_Configuration::environment('development'); //production or development
+//configure the client
+Twingly_Configuration::environment('production');
 Twingly_Configuration::twinglyId('<YOUR_TWINGLY_ID>');
 Twingly_Configuration::twinglyApiKey('<YOUR TWINGLY API_KEY>');
 
-$professional = printResult(Twingly_TopList::getProfessional());
-//$private = printResult(Twingly_TopList::getPrivate());
-
-foreach($professional AS $res) {
-    echo "blog_url: " . $res -> blog;
-    echo "blog_name: " . $res -> blog_name;
-    echo "number_of_visists: " . $res -> number_of_visists
-}
+//To create a blog connected to your account do the following:
 Twingly_Blogg::create(array(                                                                                                                                           
             'blog_url' => "http://blog.example.com",
             'blog_rss' => "http://blog.example.com/feed",
@@ -33,4 +26,16 @@ Twingly_Blogg::create(array(
                 'birthdate'=>"1707-01-01"
                 )
             ));
+
+//Get your toplist of professinal bloggers
+$professional = Twingly_TopList::getProfessional();
+//$private = Twingly_TopList::getPrivate();
+
+foreach($professional AS $res) {
+    echo "blog_url: " . $res -> blog;
+    echo "blog_name: " . $res -> blog_name;
+    echo "number_of_visists: " . $res -> number_of_visists
+}
+
+
 ```
