@@ -1,5 +1,10 @@
 Bloggportalen API php client
 ===
+Bloggportalen php client to be used with Twinglys bloggportalen api.
+Lets start with an example
+
+Example
+----
 ```
 require_once(PATH_TO_TWINGLY_API . '/Twingly.php');
 
@@ -36,6 +41,11 @@ foreach($professional AS $res) {
     echo "blog_name: " . $res -> blog_name;
     echo "number_of_visists: " . $res -> number_of_visists
 }
-
-
 ```
+In the example we first configure the php client. Then we register the blogger John Smith with his awesome cat blog.
+Twingly_Blogg::create makes a post to /blog/new which registers the blogger to your account.
+Thus making it appear in your topplists.
+
+Installation
+------------
+To install just download the .tar file from the download menu and extract it to you preferred location.
