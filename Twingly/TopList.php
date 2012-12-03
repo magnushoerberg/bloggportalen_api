@@ -6,7 +6,6 @@ class Twingly_TopList extends Twingly
 
     public static function getPrivate($limit = 10)
     {
-        print($params);
         $url = "/top-list/private?limit=" . $limit;
         $response = Twingly_Http::get($url);
         return $response;
