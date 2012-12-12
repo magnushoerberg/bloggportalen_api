@@ -44,6 +44,7 @@ class Twingly_Http
         ));
         curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
         curl_setopt($curl, CURLOPT_USERPWD, Twingly_Configuration::twinglyId() . ':' . Twingly_Configuration::twinglyApiKey());
+
         if (Twingly_Configuration::sslOn()) {
             curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);
             curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 2);
