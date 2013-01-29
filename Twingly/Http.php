@@ -49,6 +49,7 @@ class Twingly_Http
             curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);
             curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 2);
             curl_setopt($curl, CURLOPT_CAINFO, Twingly_Configuration::caFile());
+            curl_setopt($curl, CURLOPT_SSLVERSION, 3);
         }
 
         if(!empty($requestBody)) {
@@ -59,6 +60,7 @@ class Twingly_Http
         $response = curl_exec($curl);
         $httpStatus = curl_getinfo($curl, CURLINFO_HTTP_CODE);
         curl_close($curl);
+
         if (Twingly_Configuration::sslOn() && $httpStatus == 0) {
             throw new Twingly_Exception_SSLCertificate();
         }
